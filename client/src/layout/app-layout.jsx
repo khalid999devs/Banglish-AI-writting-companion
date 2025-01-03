@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 
 export default function AppLayout() {
   return (
@@ -8,9 +9,12 @@ export default function AppLayout() {
           <img src="/banglish_logo.png" alt="Banglish Logo" className="h-10 w-10 rounded-full mr-3" />
           <h1 className="text-4xl font-bold">Banglish</h1>
         </div>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Login
-        </button>
+        <SignedOut>
+         <SignInButton />
+       </SignedOut>
+       <SignedIn>
+         <UserButton />
+       </SignedIn>
       </header>
       <Outlet />
     </div>
