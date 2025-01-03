@@ -50,6 +50,16 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+REST_FRAMEWORK = {
+    # 'DEFAULT_AUTHENTICATION_CLASSES': [
+    #     'my_app.middlewares.clerk_auth.ClerkAuthentication',  
+    # ],
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated',  
+    # ],
+}
+
+
 ROOT_URLCONF = "bitfest_hackathon.urls"
 
 TEMPLATES = [
@@ -77,7 +87,7 @@ WSGI_APPLICATION = "bitfest_hackathon.wsgi.application"
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hackathon',
+        'NAME': 'hackathon_final',
         'USER': 'postgres',
         'PASSWORD': 'khalid01',
         'HOST': 'localhost',

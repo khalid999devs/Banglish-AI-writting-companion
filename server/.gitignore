@@ -26,6 +26,15 @@ Thumbs.db
 *.pyc
 *.pyo
 
+*.results
+*.logs
+*.uploads
+
+results
+logs
+uploads
+
+
 # Ignore virtual environment
 .venv/
 .venv
