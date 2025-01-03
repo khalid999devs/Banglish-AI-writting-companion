@@ -12,3 +12,16 @@ huggingface-hub==0.14.1
 # uncomment to use instructor embeddings
 InstructorEmbedding==1.0.1
 sentence-transformers==2.2.2
+
+#This part is added by Fahim
+# Transformers library for T5 model and tokenizer
+transformers==4.20.1
+
+# Datasets library for loading and preprocessing dataset
+datasets==2.3.2
+
+# PyTorch library for deep learning
+torch==1.12.1
+
+# Multiprocessing library for parallel processing
+multiprocessing==0.70.12
