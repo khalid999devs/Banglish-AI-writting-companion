@@ -2,11 +2,149 @@
 @tailwind components;
 @tailwind utilities;
 
+/* setup configs */
+
+@font-face {
+  font-family: 'PP Neue Montreal Mono';
+  src: url('/Fonts/PPNeueMontrealMono-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Eiko';
+  src: url('/Fonts/PPEiko-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/Fonts/PPNeueMontreal-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('/Fonts/NeueMontreal-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roxborough CF';
+  src: url('/Fonts/RoxboroughCF-RegularItalic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+.text-montreal-mono {
+  font-family: 'PP Neue Montreal Mono', sans-serif;
+  font-weight: 500;
+}
+.text-pp-eiko {
+  font-family: 'PP Eiko';
+}
+.text-montreal-medium {
+  font-family: 'PP Neue Montreal', sans-serif;
+}
+.text-montreal-regular {
+  font-family: 'Neue Montreal', sans-serif;
+}
+.text-rox-italic {
+  font-family: 'Roxborough CF';
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: white;
+  width: 100%;
+  /* overflow-x: hidden; */
+  height: 100%;
+  background: #161616;
+  font-family: 'PP Neue Montreal', sans-serif;
+}
+
+canvas {
+  touch-action: none;
+}
+
+.screen-max-width {
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  position: relative;
+  max-width: 1560px;
+}
+
+.body-max-width {
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  position: relative;
+  max-width: 1360px;
+}
+
+.box-big-shadow {
+  box-shadow: 2px 9px 15px -7px rgba(0, 0, 0, 0.3);
+}
+
+@layer utilities {
+  .sec-x-padding {
+    @apply px-[5px] sm:px-[10px] md:px-[20px] lg:px-[30px];
+  }
+  .sec-inner-x-padding {
+    @apply px-[10px] sm:px-[15px] md:px-[35px] lg:px-[60px];
+  }
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .nav-height {
+    @apply h-[calc(100vh-60px)];
+  }
+
+  .btn {
+    @apply px-5 py-2 rounded-3xl bg-blue my-5 hover:bg-transparent border border-transparent hover:border hover:text-blue hover:border-blue;
+  }
+
+  .color-container {
+    @apply flex items-center justify-center px-4 py-4 rounded-full bg-gray-300 backdrop-blur;
+  }
+
+  .size-btn-container {
+    @apply flex items-center justify-center p-1 rounded-full bg-gray-300 backdrop-blur ml-3 gap-1;
+  }
+
+  .size-btn {
+    @apply w-10 h-10 text-sm flex justify-center items-center bg-white text-black rounded-full transition-all;
+  }
+
+  .common-padding {
+    @apply sm:py-32 py-20 sm:px-10 px-5;
+  }
+
+  .section-heading {
+    @apply text-gray lg:text-6xl md:text-5xl text-3xl lg:mb-0 mb-5 font-medium opacity-0 translate-y-20;
+  }
+}
+
 /* ... */
 
 @layer base {
   :root {
-
     --background: 0 0% 100%;
 
     --foreground: 222.2 84% 4.9%;
@@ -55,10 +193,9 @@
 
     --chart-5: 27 87% 67%;
 
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
-
     --background: 222.2 84% 4.9%;
 
     --foreground: 210 40% 98%;
@@ -105,7 +242,7 @@
 
     --chart-4: 280 65% 60%;
 
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 
