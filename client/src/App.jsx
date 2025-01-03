@@ -1,25 +1,38 @@
-import {createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./layout/app-layout";
 import LandingPage from "./pages/landing-page";
+import DashboardPage from "./pages/dashboard-page";
+import DocsPage from "./pages/docs-page";
+import FedbackPage from "./pages/fedback-page";
+import ErrorPage from "./pages/error-page";
 
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
         element: <LandingPage />
       },
       {
-        path: "/about",
-        element: <div>About</div>
+        path: "/dashboard",
+        element: <DashboardPage />
+      },
+      {
+        path: "/docs",
+        element: <DocsPage />
+      },
+      {
+        path: "/fedback",
+        element: <FedbackPage />
       }
     ]
   }
 ]);
 
-function App(){
-  return <RouterProvider router={router}/>;
+function App() {
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
