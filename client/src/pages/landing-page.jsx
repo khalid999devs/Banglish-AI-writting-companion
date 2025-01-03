@@ -2,15 +2,12 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-reac
 
 export default function LandingPage() {
   return (
-    <main>
+    <main style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '60vh' }}>
       <section className="text-center">
-        <h1>Translate Your Banglish to pure Bangla</h1>
+        <h1 style={{ fontSize: '3em' }}>Translate<br/> Your Banglish to<br/>
+          <span style={{ fontSize: '2em', color: 'green' }}>বাংলা</span>
+        </h1>
       </section>
-      <div>
-      {/*buttons*/}
-          
-      {/*crousel*/}
-      </div>
       {/*banner*/}
 
       <section>
@@ -19,14 +16,5 @@ export default function LandingPage() {
 
       {/*accordion*/}
     </main>
-    // <div>
-    //   <h1>Welcome to the Landing Page</h1>
-    //   <SignedOut>
-    //     <SignInButton />
-    //   </SignedOut>
-    //   <SignedIn>
-    //     <UserButton />
-    //   </SignedIn>
-    // </div>
   );
 }
