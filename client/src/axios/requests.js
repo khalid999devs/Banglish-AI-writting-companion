@@ -20,7 +20,7 @@ export const validFileWrapper = (fileImg) => {
 //API REQUESTS ENUMS
 export const reqs = {
   //admin
-  ADMIN_LOGIN: '/api/admin/login', //post
+  USER_LOGIN: '/api/user/login', //post
   ADMIN_LOGOUT: '/api/admin/logout', //get
   IS_ADMIN_VALID: '/api/admin/auth', //get
 

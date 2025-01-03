@@ -1,3 +1,4 @@
+import { CarouselPlugin } from "@/components/carousel";
 import LandingHero from "@/components/landing-hero";
 import {
   Accordion,
@@ -5,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { CircleArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function LandingPage() {
@@ -29,26 +31,24 @@ export default function LandingPage() {
   return (
     <main>
       <LandingHero />
-      <section className="flex justify-center items-center my-10">
-        <div className="border border-blue-800 rounded-lg p-4 shadow-lg shadow-blue-800 text-black w-1/3 mx-2">
+      <section className="flex flex-col md:flex-row justify-center items-center my-10 mx-4 md:mx-0">
+        <div className="border border-blue-800 rounded-lg p-4 shadow-lg shadow-blue-800 text-black w-full md:w-1/3 mx-2 mb-4 md:mb-0">
           <h3 className="text-xl text-slate-200 text-center mb-2">Input</h3>
           <pre className="text-blue-200 text-lg whitespace-pre-wrap">{banglishText}</pre>
         </div>
-        <p className="text-xl mx-2">➡️</p>
-        <div className="border border-blue-800 rounded-lg p-4 shadow-lg shadow-blue-800 text-black w-1/3 mx-2">
+        <CircleArrowRight className="text-blue-800 w-8 h-8 mx-2" />
+        <div className="border border-blue-800 rounded-lg p-4 shadow-lg shadow-blue-800 text-black w-full md:w-1/3 mx-2">
           <h3 className="text-xl text-slate-200 text-center mb-2">Output</h3>
           <pre className="text-blue-200 text-lg whitespace-pre-wrap">{banglaText}</pre>
         </div>
       </section>
       <section className="text-center">
-        <button className="bg-purple-600 h-16 w-2/12 shadow-md shadow-slate-900 my-10 hover:bg-blue-900 text-slate-100 py-2 px-4 rounded-full">
+        <button className="bg-purple-600 shadow-md shadow-slate-900 my-10 hover:bg-blue-900 text-slate-100 py-4 px-5 rounded-full">
           Get Started For Free
         </button>
       </section>
       {/*banner*/}
-      <section>
-        <img src="/banner.jpg" alt="Banner" className="w-3/4 mx-auto my-10 rounded-3xl shadow-2xl shadow-blue-900 outline outline-blue-500" />
-      </section>
+      <CarouselPlugin />
       <h2 className="text-center text-3xl font-bold mt-32">Features</h2>
       <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10 mx-10">
         <div className="bg-slate-800 p-4 rounded-lg text-white text-center shadow-lg shadow-blue-900">
