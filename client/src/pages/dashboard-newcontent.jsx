@@ -7,7 +7,6 @@ export default function DashboardNewContent() {
     return (
         <div className="p-4 max-w-2xl">
             <h1 className="my-5">Content Information</h1>
-
             <div className="my-8">
                 <p className="ms-2">Title</p>
                 <Input label="Title" placeholder="Enter title" />

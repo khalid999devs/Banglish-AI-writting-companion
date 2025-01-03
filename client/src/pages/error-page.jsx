@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './error-page.css'; // Import the CSS file for glitch effect
+import { SignedIn, SignedOut } from '@clerk/clerk-react';
 
 export default function ErrorPage() {
     return (
@@ -9,7 +10,12 @@ export default function ErrorPage() {
             <h1 className="text-6xl font-bold text-pink-600 glitch" data-text="404">404</h1>
             <p className="text-3xl my-5 text-white glitch" data-text="Page Not Found">Page Not Found</p>
             <button className="px-4 py-2 text-slate-950 rounded-full bg-blue-200 hover:bg-blue-300">
-                <Link to="/">Return to Home</Link>
+                <SignedIn>
+                    <Link to="/dashboard">Return to Dashboard</Link>
+                </SignedIn>
+                <SignedOut>
+                    <Link to="/">Return to Home</Link>
+                </SignedOut>
             </button>
         </div>
     );

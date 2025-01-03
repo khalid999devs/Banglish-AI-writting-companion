@@ -1,9 +1,41 @@
 import { useState } from "react";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton, useUser } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+// import { useAppContext } from "@/layout/app-layout";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  // const {user}=useAppContext()
+
+  const handleSignUp = () => {
+
+
+    const { user } = useUser();
+    const name = user?.fullName || `${user?.firstName || ""} ${user?.lastName || ""}`;
+    const email = user?.emailAddresses[0]?.emailAddress; // First email address
+    const avatarUrl = user?.imageUrl; // Avatar image URL
+    const postData = {
+      fullname: name,
+      email: email,
+      avatar: avatarUrl,
+    };
+    axios
+      .post("https://jsonplaceholder.typicode.com/posts", postData)
+      .then((response) => console.log("Sign Up Success:", response.data))
+      .catch((error) => console.error("Sign Up Error:", error));
+  };
+
+  const handleSignIn = () => {
+    const postData = {
+      email: "bar@example.com",
+      password: "password123",
+    };
+    axios
+      .post("https://jsonplaceholder.typicode.com/posts", postData)
+      .then((response) => console.log("Sign In Success:", response.data))
+      .catch((error) => console.error("Sign In Error:", error));
+  };
 
   return (
     <div className="relative z-10">
@@ -14,12 +46,13 @@ export default function NavBar() {
           <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">Banglish</h1>
           </Link>
         </div>
-        <div className="hidden md:flex items-center space-x-4">
-          <a href="/dashboard" className="text-lg text-gray-200 hover:text-blue-400">Dashboard</a>
-          <a href="/docs" className="text-lg text-gray-200 hover:text-blue-400">Docs</a>
-          <a href="/fedback" className="text-lg text-gray-200 hover:text-blue-400">Fedback</a>
+        <div className="hidden md:flex items-center space-x-6">
+          <SignedIn><Link to="/dashboard" className="text-lg text-gray-200 hover:text-blue-400">Dashboard</Link></SignedIn>
+          <Link to="/docs" className="text-lg text-gray-200 hover:text-blue-400">Documentations</Link>
+          <Link to="/fedback" className="text-lg text-gray-200 hover:text-blue-400">Feedback</Link>
           <SignedOut>
-            <SignInButton />
+            <SignInButton onSignIn={handleSignIn} />
+            <SignUpButton onSignUp={handleSignUp} />
           </SignedOut>
           <SignedIn>
             <UserButton />
@@ -35,11 +68,12 @@ export default function NavBar() {
       </header>
       {isOpen && (
         <div className="md:hidden flex flex-col items-center space-y-4 mt-4">
-          <a href="/dashboard" className="text-lg text-gray-200 hover:text-blue-400">Dashboard</a>
-          <a href="/docs" className="text-lg text-gray-200 hover:text-blue-400">Docs</a>
-          <a href="/fedback" className="text-lg text-gray-200 hover:text-blue-400">Fedback</a>
+          <SignedIn><Link to="/dashboard" className="text-lg text-gray-200 hover:text-blue-400">Dashboard</Link></SignedIn>
+          <Link to="/docs" className="text-lg text-gray-200 hover:text-blue-400">Docs</Link>
+          <Link to="/fedback" className="text-lg text-gray-200 hover:text-blue-400">Fedback</Link>
           <SignedOut>
-            <SignInButton />
+            <SignInButton onSignIn={handleSignIn} />
+            <SignUpButton onSignUp={handleSignUp} />
           </SignedOut>
           <SignedIn>
             <UserButton />
