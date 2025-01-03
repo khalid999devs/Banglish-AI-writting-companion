@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,8 +9,10 @@ export default function NavBar() {
     <div className="relative z-10">
       <header className="p-6 flex justify-between items-center">
         <div className="flex items-center">
+          <Link to="/" className="flex items-center space-x-2">
           <img src="/translate.png" alt="Banglish Logo" className="h-10 w-10 rounded-full mr-3" />
           <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">Banglish</h1>
+          </Link>
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <a href="/dashboard" className="text-lg text-gray-200 hover:text-blue-400">Dashboard</a>

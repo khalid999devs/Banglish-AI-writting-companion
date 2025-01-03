@@ -34,7 +34,7 @@ export default function LandingPage() {
           <h3 className="text-xl text-slate-200 text-center mb-2">Input</h3>
           <pre className="text-blue-200 text-lg whitespace-pre-wrap">{banglishText}</pre>
         </div>
-        <p className="text-4xl mx-2">&gt;</p>
+        <p className="text-xl mx-2">➡️</p>
         <div className="border border-blue-800 rounded-lg p-4 shadow-lg shadow-blue-800 text-black w-1/3 mx-2">
           <h3 className="text-xl text-slate-200 text-center mb-2">Output</h3>
           <pre className="text-blue-200 text-lg whitespace-pre-wrap">{banglaText}</pre>
