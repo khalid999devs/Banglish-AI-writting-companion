@@ -12,7 +12,7 @@ import {
 
 export function CarouselPlugin() {
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: false })
+    Autoplay({ delay: 3000, stopOnInteraction: false })
   )
 
   return (
@@ -26,7 +26,7 @@ export function CarouselPlugin() {
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
-              <img src="/banner.jpg" alt="Banner" className="w-3/4 mx-auto my-20 rounded-3xl shadow-2xl shadow-blue-900 outline outline-blue-500" />
+              <img src={`/banner${index}.png`} alt="Banner" className="w-3/4 mx-auto my-20 rounded-3xl shadow-2xl shadow-blue-900 outline outline-blue-500" />
             </div>
           </CarouselItem>
         ))}
