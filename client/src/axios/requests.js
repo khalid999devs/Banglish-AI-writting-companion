@@ -1,4 +1,4 @@
-export const serverOrigin = 'http://127.0.0.1:8000';
+export const serverOrigin = 'http://localhost:8000';
 
 export const reqFileWrapper = (src) => {
   if (!src) return null;
