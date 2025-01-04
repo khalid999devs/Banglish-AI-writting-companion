@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AppLayout from './layout/app-layout';
 import LandingPage from './pages/landing-page';
@@ -21,6 +22,26 @@ import axios from 'axios';
 import { reqs } from './axios/requests';
 
 const AppContext = createContext({});
+=======
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AppLayout from "./layout/app-layout";
+import LandingPage from "./pages/landing-page";
+import DashboardPage from "./pages/dashboard-page";
+import DocsPage from "./pages/docs-page";
+import FedbackPage from "./pages/fedback-page";
+import ErrorPage from "./pages/error-page";
+import DashboardLayout from "./layout/dashboard-layout";
+import { ThemeProvider } from "./components/theme-provider";
+import DashboardProfile from "./pages/dashboard-profile";
+import DashboardContent from "./pages/dashboard-contents";
+import DashboardNewContent from "./pages/dashboard-newcontent";
+import DashboardFavourite from "./pages/dashboard-favourite";
+import DashboardSettings from "./pages/dashboard-settings";
+import DashboardCollaborate from "./pages/dashboard-collaborate";
+import DashboardViewContent from "./pages/dashboard-viewcontent";
+import ViewProfile from "./pages/profile";
+import ViewPost from "./pages/view-post";
+>>>>>>> a6e5ebed5385bdefdc8a55df42af228004f48410
 
 const router = createBrowserRouter([
   {
@@ -41,10 +62,21 @@ const router = createBrowserRouter([
         element: <DocsPage />,
       },
       {
+<<<<<<< HEAD
         path: '/fedback',
         element: <FedbackPage />,
       },
     ],
+=======
+        path: "/fedback",
+        element: <FedbackPage />
+      },
+      {
+        path: "/profile/:id",
+        element: <ViewProfile />
+      },
+    ]
+>>>>>>> a6e5ebed5385bdefdc8a55df42af228004f48410
   },
   {
     path: '/dashboard',
