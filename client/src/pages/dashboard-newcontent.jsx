@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import axios from 'axios';
-import { Download, Mail, Send, Wand } from 'lucide-react';
+import { Download, Send, Wand, Bold, Italic, Underline, Strikethrough, List, ListOrdered, Quote, AlignLeft, AlignCenter, AlignRight, AlignJustify } from 'lucide-react';
 import { useState } from 'react';
 
 export default function DashboardNewContent() {
@@ -48,7 +48,7 @@ export default function DashboardNewContent() {
   return (
     <div className='p-4 max-w-2xl'>
       <h1 className='my-5'>Content Information</h1>
-      <div className='my-8'>
+      <div className='my-8 relative'>
         <p className='mb-2'>Title</p>
         <Input
           label='Title'
@@ -58,8 +58,9 @@ export default function DashboardNewContent() {
             onChange: (e) => setTitle(e.target.value),
           }}
         />
+        <Wand className='absolute right-3 top-10 text-gray-400' />
       </div>
-      <div className='my-8'>
+      <div className='my-8 relative'>
         <p className='mb-2'>Caption</p>
         <Input
           label='Caption'
@@ -69,10 +70,46 @@ export default function DashboardNewContent() {
             onChange: (e) => setCaption(e.target.value),
           }}
         />
+        <Wand className='absolute right-3 top-10 text-gray-400' />
       </div>
 
       <div className='my-8'>
         <p className='mb-2'>Description</p>
+        <div className='flex space-x-2 mb-2'>
+          <Button variant='secondary'>
+            <Bold />
+          </Button>
+          <Button variant='secondary'>
+            <Italic />
+          </Button>
+          <Button variant='secondary'>
+            <Underline />
+          </Button>
+          <Button variant='secondary'>
+            <Strikethrough />
+          </Button>
+          <Button variant='secondary'>
+            <List />
+          </Button>
+          <Button variant='secondary'>
+            <ListOrdered />
+          </Button>
+          <Button variant='secondary'>
+            <Quote />
+          </Button>
+          <Button variant='secondary'>
+            <AlignLeft />
+          </Button>
+          <Button variant='secondary'>
+            <AlignCenter />
+          </Button>
+          <Button variant='secondary'>
+            <AlignRight />
+          </Button>
+          <Button variant='secondary'>
+            <AlignJustify />
+          </Button>
+        </div>
         <Textarea
           label='Description'
           placeholder='Enter description'
