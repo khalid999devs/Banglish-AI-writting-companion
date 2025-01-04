@@ -168,8 +168,8 @@ export default function DashboardContent() {
 
   const worksToShow = selectedTab === 'explore' ? othersWork : myWorks;
 
-  const handleCardClick = (id) => {
-    navigate(`/dashboard/content/${id}`);
+  const handleCardClick = (id, content) => {
+    navigate(`/dashboard/content/${id}`, { state: { content: content } });
   };
 
   return (
@@ -208,7 +208,7 @@ export default function DashboardContent() {
             <div
               key={key}
               className='bg-gray-800 p-4 rounded-lg shadow-lg text-white cursor-pointer'
-              onClick={() => handleCardClick(work.id)}
+              onClick={() => handleCardClick(work.id, work)}
             >
               <h3 className='text-lg font-semibold mb-2'>{work.title}</h3>
               <p className='mb-4'>{work.bangla_desc.substring(0, 20)} ...</p>

@@ -15,7 +15,7 @@ import { reqs } from '@/axios/requests';
 import { useAppContext } from '@/App';
 
 export default function DashboardLayout() {
-  const { appUser } = useAppContext();
+  const { appUser, chatbot } = useAppContext();
   const { user } = useUser();
   const location = useLocation();
   const [chatOpen, setChatOpen] = useState(false);
@@ -24,6 +24,7 @@ export default function DashboardLayout() {
   const [keyword, setKeyword] = useState('');
   const [filteredContents, setFilteredContents] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
+  const [chatMsgs, setChatMsgs] = useState([]);
 
   useEffect(() => {
     if (appUser.token && keyword.length > 0) {
@@ -55,6 +56,26 @@ export default function DashboardLayout() {
       { id: 2, text: '10 People Loved your post' },
       { id: 3, text: '30 People read your post' },
     ]);
+
+    if (appUser.token && appUser.chatbot) {
+      axios
+        .get(`${reqs.GET_ALL_CHATS}/${appUser?.chatbot?.id}`, {
+          headers: {
+            Authorization: `Bearer ${appUser.token}`,
+          },
+        })
+        .then((res) => {
+          if (res.data?.result) {
+            setChatMsgs(res.data.result);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          alert(
+            'This PC does not have enough memory space available needed to run llama2 locally'
+          );
+        });
+    }
   }, []);
 
   useEffect(() => {
@@ -219,6 +240,8 @@ export default function DashboardLayout() {
             >
               <MessageCircle className='h-6 w-6' />
             </button>
+
+            {/* Chat bot */}
             {chatOpen && (
               <div className='fixed bottom-8 overflow-hidden right-8 bg-slate-900 rounded-2xl shadow-lg w-96'>
                 <div className='flex justify-between items-center mb-4 p-4 bg-slate-800'>
@@ -228,17 +251,22 @@ export default function DashboardLayout() {
                   </button>
                 </div>
                 <div className='flex flex-col space-y-2 px-2 py-8 overflow-y-auto h-96'>
-                  {messages.map((message, index) => (
-                    <div
-                      key={index}
-                      className={`p-2 rounded-lg max-w-60 ${
-                        message.type === 'received'
-                          ? 'bg-blue-950 self-start'
-                          : 'bg-blue-800 text-white self-end'
-                      }`}
-                    >
-                      {message.text}
-                    </div>
+                  {chatMsgs.map((msg, index) => (
+                    <>
+                      <div
+                        key={index}
+                        className={`p-2 rounded-lg max-w-60 bg-blue-800 text-white self-end`}
+                      >
+                        {msg.message.text}
+                      </div>
+
+                      <div
+                        key={index}
+                        className={`p-2 rounded-lg max-w-60 bg-blue-950 self-start`}
+                      >
+                        {msg.message.response}
+                      </div>
+                    </>
                   ))}
                 </div>
                 <div className='flex items-center p-2 border-t border-slate-950'>
