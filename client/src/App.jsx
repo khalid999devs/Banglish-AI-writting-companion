@@ -14,6 +14,8 @@ import DashboardFavourite from "./pages/dashboard-favourite";
 import DashboardSettings from "./pages/dashboard-settings";
 import DashboardCollaborate from "./pages/dashboard-collaborate";
 import DashboardViewContent from "./pages/dashboard-viewcontent";
+import ViewProfile from "./pages/profile";
+import ViewPost from "./pages/view-post";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +38,11 @@ const router = createBrowserRouter([
       {
         path: "/fedback",
         element: <FedbackPage />
-      }
+      },
+      {
+        path: "/profile/:id",
+        element: <ViewProfile />
+      },
     ]
   },
   {
