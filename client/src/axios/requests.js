@@ -24,10 +24,15 @@ export const reqs = {
   ADMIN_LOGOUT: '/api/admin/logout', //get
   IS_ADMIN_VALID: '/api/admin/auth', //get
 
-  //settings
-  GET_SETTINGS: '/api/settings', //get
-  ADD_SETTINGS: '/api/settings/add', //post
-  EDIT_SETTINGS: '/api/settings/edit', //patch
+  //contenst
+  GET_CONTENTS: '/api/content/all', //get
+  SEARCH_CONTENTS: '/api/search/', //post
+  CREATE_CONTENT: '/api/content/create', //post
+  BANGLA_TEXT_GENERATOR: '/api/bot/translate', //post
+
+  //bot
+  QUES_BOT: '/api/bot/ques', //post
+  GET_ALL_CHATS: '/api/bot/msgs', //get-- /:chat_bot_id
 
   //projects
   GET_PROJECT: '/api/projects', //post
