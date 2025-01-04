@@ -169,7 +169,7 @@ export default function DashboardViewContent() {
       <div className='flex justify-between w-40 my-10'>
         <div className='flex items-center mr-5'>
           <Heart className='mr-1' />
-          <span>12</span>
+          <span>{target_content?.likes_num || 0}</span>
         </div>
         <button className='rounded-full bg-slate-800 px-5 py-2 flex items-center '>
           <SquarePen />
