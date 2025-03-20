@@ -4,7 +4,22 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import axios from 'axios';
-import { Download, Send, Wand, Bold, Italic, Underline, Strikethrough, List, ListOrdered, Quote, AlignLeft, AlignCenter, AlignRight, AlignJustify } from 'lucide-react';
+import {
+  Download,
+  Send,
+  Wand,
+  Bold,
+  Italic,
+  Underline,
+  Strikethrough,
+  List,
+  ListOrdered,
+  Quote,
+  AlignLeft,
+  AlignCenter,
+  AlignRight,
+  AlignJustify,
+} from 'lucide-react';
 import { useState } from 'react';
 
 export default function DashboardNewContent() {
@@ -126,11 +141,12 @@ export default function DashboardNewContent() {
       </div>
 
       <div className='my-8 text-white'>
-        <p className='mb-2'>{banglaText || 'Bangla Text'}</p>
+        <p className='mb-2'>Bangla Text</p>
         <Textarea
           className='bg-slate-600'
           label='Bangla Text'
-          value='আমি বাংলায় কথা বলি'
+          value={banglaText || 'আমি বাংলায় কথা বলি'}
+          // placeholder='আমি বাংলায় কথা বলি'
           disabled
         />
       </div>
